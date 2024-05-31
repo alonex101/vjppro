@@ -1,4 +1,3 @@
-// Filmicpro，Focos，Focos Live，Splice，30 Day Fitness，Sleep，Remini，Yoga Wave，Firstlight，Doubletake
 if ($response.body != 'undefined'){
 var chxm1023 = JSON.parse($response.body);
 const url = $request.url;
