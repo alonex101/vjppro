@@ -1,15 +1,16 @@
-if ($response.body != 'undefined'){
-var mgmdev = JSON.parse($response.body);
-const url = $request.url;
-
-if (url.indexOf('remini') != -1) { ids = "com.bigwinepot.nwdn.international.1w_p9_99_pro";}
-
-mgmdev["me"]["active_subscriptions_ids"] = [(ids)];
-mgmdev["me"]["active_bundle_subscriptions"] = [{
-   "expiry" : "2080-08-08T08:08:08+00:00",
-   "product_id" : (ids),
-   "features" : ["unlock"]
-  }];
-mgmdev["settings"]["__identity__"]["expiration"] = "2080-08-08T08:08:08+00:00";
-$done({body : JSON.stringify(mgmdev)});
-}
+var obj = JSON.parse($response.body); 
+ obj['daylight_saving'] = false;
+ obj['is_baseline'] = false;
+ obj['is_frozen_app'] = null;
+ obj['is_free'] = false;
+ obj['subscription_valid'] = true;
+ obj['active_subscriptions'] = "com.bigwinepot.nwdn.international.1w_t20_1w";
+ obj['is_subscribed'] = true;
+ obj['is_pro'] = true;
+ obj['paywall_hit'] = false;
+ obj['auto_renew_enabled'] = true;
+ obj['expiration_date'] = '2995-05-7T04:31:45Z';
+ obj['is_trial'] = true;
+ obj['status'] = "ok";
+ obj['processing_count'] = 0;
+$done({body: JSON.stringify(obj)});
