@@ -1,5 +1,5 @@
 if ($response.body != 'undefined'){
-var chxm1023 = JSON.parse($response.body);
+var alonex101 = JSON.parse($response.body);
 const url = $request.url;
 
 if (url.indexOf('splice') != -1) { ids = "com.path36.SpliceFree.1y_t150_bundle";}
@@ -13,12 +13,19 @@ if (url.indexOf('thirtydayfitness') != -1) { ids = "com.vigorapps.30DayFitness.1
 if (url.indexOf('sleep') != -1) { ids = "com.bendingspoonsapps.SleepHelp.1y_t100_bundle_adj";}
 if (url.indexOf('yoga') != -1) { ids = "com.flyingnayeem.yoga.1y_t100_1w_bundle_adj";}
 
-chxm1023["me"]["active_subscriptions_ids"] = [(ids)];
-chxm1023["me"]["active_bundle_subscriptions"] = [{
-   "expiry" : "2099-09-09T09:09:09+00:00",
+alonex101["me"]["active_subscriptions_ids"] = [(ids)];
+alonex101["me"]["active_bundle_subscriptions"] = [{
+   "expire" : "2099-09-09T09:09:09+00:00",
+   "start": "2024-01-07T02:32:04Z",
    "product_id" : (ids),
-   "features" : ["unlock"]
+   "purchase_date": "2024-01-07T02:32:04Z",
+   "paymentProvider": "Apple",
+   "isExpired": false,
+   "isGracePeriodExpired": false,
+   "subscriptionStatus": "INITIAL_BUY",
+   "features" : ["unlock"],
+   "isFreeTrial": true
   }];
-chxm1023["settings"]["__identity__"]["expiration"] = "2099-09-09T09:09:09+00:00";
-$done({body : JSON.stringify(chxm1023)});
+alonex101["settings"]["__identity__"]["expiration"] = "2099-09-09T09:09:09+00:00";
+$done({body : JSON.stringify(alonex101)});
 }
