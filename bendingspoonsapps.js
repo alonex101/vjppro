@@ -16,15 +16,8 @@ if (url.indexOf('yoga') != -1) { ids = "com.flyingnayeem.yoga.1y_t100_1w_bundle_
 alonex101["me"]["active_subscriptions_ids"] = [(ids)];
 alonex101["me"]["active_bundle_subscriptions"] = [{
    "expire" : "2099-09-09T09:09:09+00:00",
-   "start": "2024-01-07T02:32:04Z",
    "product_id" : (ids),
-   "purchase_date": "2024-01-07T02:32:04Z",
-   "paymentProvider": "Apple",
-   "isExpired": false,
-   "isGracePeriodExpired": false,
-   "subscriptionStatus": "INITIAL_BUY",
-   "features" : ["unlock"],
-   "isFreeTrial": true
+   "features" : "pro"
   }];
 alonex101["settings"]["__identity__"]["expiration"] = "2099-09-09T09:09:09+00:00";
 $done({body : JSON.stringify(alonex101)});
