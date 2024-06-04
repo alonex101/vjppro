@@ -1,0 +1,2 @@
+# Shdwrckt
+Script for Shadowrocket
