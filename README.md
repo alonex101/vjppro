@@ -16,4 +16,6 @@
 - Block ads
 
 ## Credits
-- [chmx1023](https://github.com/chmx1023)
+- [chxm1023](https://github.com/chxm1023)
+- [maasea](https://github.com/maasea)
+- [app2smile](https://github.com/app2smile)
