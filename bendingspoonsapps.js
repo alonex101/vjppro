@@ -1,5 +1,5 @@
 if ($response.body != 'undefined'){
-var alonex101 = JSON.parse($response.body);
+var chxm1023 = JSON.parse($response.body);
 const url = $request.url;
 
 if (url.indexOf('splice') != -1) { ids = "com.path36.SpliceFree.1y_t150_bundle";}
@@ -13,12 +13,12 @@ if (url.indexOf('thirtydayfitness') != -1) { ids = "com.vigorapps.30DayFitness.1
 if (url.indexOf('sleep') != -1) { ids = "com.bendingspoonsapps.SleepHelp.1y_t100_bundle_adj";}
 if (url.indexOf('yoga') != -1) { ids = "com.flyingnayeem.yoga.1y_t100_1w_bundle_adj";}
 
-alonex101["me"]["active_subscriptions_ids"] = [(ids)];
-alonex101["me"]["active_bundle_subscriptions"] = [{
-   "expire" : "2099-09-09T09:09:09+00:00",
+chxm1023["me"]["active_subscriptions_ids"] = [(ids)];
+chxm1023["me"]["active_bundle_subscriptions"] = [{
+   "expiry" : "2099-09-09T09:09:09+00:00",
    "product_id" : (ids),
-   "features" : "pro"
+   "features" : ["unlock"]
   }];
-alonex101["settings"]["__identity__"]["expiration"] = "2099-09-09T09:09:09+00:00";
-$done({body : JSON.stringify(alonex101)});
+chxm1023["settings"]["__identity__"]["expiration"] = "2099-09-09T09:09:09+00:00";
+$done({body : JSON.stringify(chxm1023)});
 }
