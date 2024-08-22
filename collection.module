@@ -11,6 +11,9 @@ RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hosts
 RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/extensions/threat/surge-rule.conf,REJECT-TINYGIF
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+DOMAIN-KEYWORD,listdl,REJECT
+DOMAIN-KEYWORD,anticheatexpert,REJECT
+DOMAIN-KEYWORD,prod-lobby,REJECT
 
 [URL Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad - reject-200
