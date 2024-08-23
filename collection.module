@@ -14,6 +14,8 @@ AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 DOMAIN-KEYWORD,listdl,REJECT
 DOMAIN-KEYWORD,anticheatexpert,REJECT
 DOMAIN-KEYWORD,prod-lobby,REJECT
+DOMAIN-KEYWORD,tpns.sh,REJECT
+DOMAIN-KEYWORD,tdm.qq,REJECT
 
 [URL Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad - reject-200
