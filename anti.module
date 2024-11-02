@@ -2,8 +2,12 @@
 #!desc=🙈 Chống ban
 
 [Rule]
-RULE-SET,https://cdn.jsdelivr.net/gh/Loyalsoldier/surge-rules@release/ruleset/reject.txt,REJECT
-RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rule.conf,REJECT
-RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rewrite.conf,REJECT
-RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/extensions/threat/surge-rule.conf,REJECT
-RULE-SET,https://raw.githubusercontent.com/alonex101/shdwrckt/refs/heads/main/anti.conf,REJECT
+RULE-SET,https://cdn.jsdelivr.net/gh/Loyalsoldier/surge-rules@release/ruleset/reject.txt,REJECT-NO-DROP
+RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rule.conf,REJECT-NO-DROP
+RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rewrite.conf,REJECT-NO-DROP
+RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/extensions/threat/surge-rule.conf,REJECT-NO-DROP
+DOMAIN-KEYWORD,listdl,REJECT-NO-DROP
+DOMAIN-KEYWORD,anticheatexpert,REJECT-NO-DROP
+DOMAIN-KEYWORD,prod-lobby,REJECT-NO-DROP
+DOMAIN-KEYWORD,tpns.sh,REJECT-NO-DROP
+DOMAIN-KEYWORD,tdm.qq,REJECT-NO-DROP
