@@ -1,8 +1,8 @@
-#!name= 🙄 Beta
-#!desc= 🙄 Unlock VIP
+#!name= 🇻🇳 No Youtube + Spotify
+#!desc= 🇻🇳 Fake Premium
 
 [General]
-force-http-engine-hosts = %APPEND% script.hub, *.script.hub
+force-http-engine-hosts = script.hub, *.script.hub
 
 [Script]
 # 🇻🇳 Script Hub
@@ -39,4 +39,4 @@ BendingSpoonApps = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingsp
 
 
 [MITM]
-hostname = %APPEND% script.hub, *.script.hub, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com
+hostname = script.hub, *.script.hub, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com
