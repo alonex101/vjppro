@@ -11,6 +11,10 @@ AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 [URL Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad - reject-200
 
+[Header Rewrite]
+# if-none-match返回304状态码
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+
 [Script]
 # 🇻🇳 Script Hub
 FrontEnd = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, max-size=-1, timeout=300
@@ -54,6 +58,8 @@ Lightroom = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accoun
 # 🇻🇳 Bending Spoon Apps
 BendingSpoonApps = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/bending.js, requires-body=true, max-size=-1, timeout=300
 
+[Map Local]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
 hostname = script.hub, *.script.hub, *.googlevideo.com, youtubei.googleapis.com, spclient.wg.spotify.com, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com
