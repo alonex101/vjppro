@@ -57,8 +57,13 @@ Lightroom = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accoun
 # 🇻🇳 Bending Spoon Apps
 BendingSpoonApps = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/bending.js, requires-body=true, max-size=-1, timeout=300
 
+# 🇻🇳 SRSS
+SRSSAccount = type=http-request, pattern=^https?:\/\/api\.x\.com\/1\.1\/account\/settings\.json, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/SRSS/dist/srss.js
+
+SRSSHandler = type=http-request, pattern=^http:\/\/s.rss\/x\/.*, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/SRSS/dist/srss.js
+
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
 
 [MITM]
-hostname = script.hub, *.script.hub, *.googlevideo.com, youtubei.googleapis.com, spclient.wg.spotify.com, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com
+hostname = script.hub, *.script.hub, *.googlevideo.com, youtubei.googleapis.com, spclient.wg.spotify.com, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com, api.x.com
