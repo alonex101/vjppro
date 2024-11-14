@@ -4,6 +4,12 @@
 [General]
 force-http-engine-hosts = script.hub, *.script.hub
 
+[Header Rewrite]
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+
+[Map Local]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
+
 [Rule]
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
