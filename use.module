@@ -1,69 +1,36 @@
-#!name= 🇻🇳 Tổng hợp ứng dụng
-#!desc= 🦕 Fake Premium
-
-[General]
-force-http-engine-hosts = script.hub, *.script.hub
-
-[Header Rewrite]
-http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
-
-[Map Local]
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data=""
+#!name= 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙤𝙣
+#!desc= 𝘊𝘰𝘮𝘱𝘪𝘭𝘦𝘥 𝘣𝘺 𝘓𝘰𝘺𝘭𝘥 𝘕𝘨𝘶𝘺𝘦𝘯
 
 [Rule]
-AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt,REJECT
+RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rule.conf,REJECT
+RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rewrite.conf,REJECT
+RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/extensions/threat/surge-rule.conf,REJECT
+DOMAIN-KEYWORD,listdl,REJECT
+DOMAIN-KEYWORD,anticheatexpert,REJECT
+DOMAIN-KEYWORD,prod-lobby,REJECT
+DOMAIN-KEYWORD,tpns.sh,REJECT
+DOMAIN-KEYWORD,tdm.qq,REJECT
+SCRIPT,quic,REJECT
+FINAL,DIRECT
 
 [URL Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad - reject-200
 
 [Script]
-# 🇻🇳 Script Hub
-FrontEnd = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, max-size=-1, timeout=300
-
-Override = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js, max-size=-1, timeout=300
-
-RuleSet = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js, max-size=-1, timeout=300
-
-Script = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js, max-size=-1, timeout=300
-
-# 🇻🇳 Youtube
-YoutubeRequest = type=http-request, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch), script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.request.preview.js, requires-body=true, binary-body-mode=true, max-size=-1
-
-YoutubeResponse = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, requires-body=true, binary-body-mode=true, max-size=-1, argument="{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"debug":false}"
-
-# 🇻🇳 Spotify
-SpotifyJson = type=http-request, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, max-size=-1, timeout=300
-
-SpotifyProto = type=http-response, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, max-size=-1, timeout=300
-
-# 🇻🇳 Revenue Cat
-RevenueCat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://gist.githubusercontent.com/ddgksf2013/dbb1695cd96743eef18f3fac5c6fe227/raw/revenuecat.js, requires-body=true, max-size=-1, timeout=300
-
-DeleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, max-size=-1, timeout=300
-
-# 🇻🇳 Nicegram
-Nicegram = type=http-response, pattern=^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth), script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, max-size=-1, timeout=300
-
-# 🇻🇳 Cam Scanner
-CamScanner = type=http-response, pattern=^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?, script-path=https://github.com/ddgksf2013/dev/raw/main/CamscannerProCrack.js, requires-body=true, max-size=-1, timeout=300
-
-# 🇻🇳 Speed Test Master
-SpeedTestMaster = type=http-response, pattern=^https:\/\/iap\.etm\.tech\/receipts, script-path=https://raw.githubusercontent.com/lonely0811/olsd/main/speedtest.js, requires-body=true, max-size=-1, timeout=300
-
-# 🇻🇳 True Caller
-TrueCaller = type=http-response, pattern=^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple), script-path=https://raw.githubusercontent.com/alonex101/shdwrckt/main/truecaller.js, requires-body=true, max-size=-1, timeout=300
-
-# 🇻🇳 Lightroom
-Lightroom = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts*, script-path=https://raw.githubusercontent.com/lonely0811/Surge/main/js/lroom.js, requires-body=true, max-size=-1, timeout=300
-
-# 🇻🇳 Bending Spoon Apps
-BendingSpoonApps = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/bending.js, requires-body=true, max-size=-1, timeout=300
-
-# 🇻🇳 SRSS
-SRSSAccount = type=http-request, pattern=^https?:\/\/api\.x\.com\/1\.1\/account\/settings\.json, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/SRSS/dist/srss.js
-
-SRSSHandler = type=http-request, pattern=^http:\/\/s.rss\/x\/.*, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/SRSS/dist/srss.js
+𝙔𝙤𝙪𝙩𝙪𝙗𝙚 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, requires-body=true, binary-body-mode=true, max-size=-1, argument="{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"debug":false}"
+𝙎𝙥𝙤𝙩𝙞𝙛𝙮𝙅𝙨𝙤𝙣 = type=http-request, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, max-size=-1, timeout=300
+𝙎𝙥𝙤𝙩𝙞𝙛𝙮𝙋𝙧𝙤𝙩𝙤 = type=http-response, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, max-size=-1, timeout=300
+𝙍𝙚𝙫𝙚𝙣𝙪𝙚𝘾𝙖𝙩 = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://gist.githubusercontent.com/ddgksf2013/dbb1695cd96743eef18f3fac5c6fe227/raw/revenuecat.js, requires-body=true, max-size=-1, timeout=300
+𝙍𝙚𝙫𝙚𝙣𝙪𝙚𝘾𝙖𝙩𝙃𝙚𝙖𝙙𝙚𝙧 = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, max-size=-1, timeout=300
+𝙉𝙞𝙘𝙚𝙜𝙧𝙖𝙢 = type=http-response, pattern=^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth), script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, max-size=-1, timeout=300
+𝘾𝙖𝙢𝙎𝙘𝙖𝙣𝙣𝙚𝙧 = type=http-response, pattern=^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?, script-path=https://github.com/ddgksf2013/dev/raw/main/CamscannerProCrack.js, requires-body=true, max-size=-1, timeout=300
+𝙎𝙥𝙚𝙚𝙙𝙏𝙚𝙨𝙩𝙈𝙖𝙨𝙩𝙚𝙧 = type=http-response, pattern=^https:\/\/iap\.etm\.tech\/receipts, script-path=https://raw.githubusercontent.com/lonely0811/olsd/main/speedtest.js, requires-body=true, max-size=-1, timeout=300
+𝙏𝙧𝙪𝙚𝘾𝙖𝙡𝙡𝙚𝙧 = type=http-response, pattern=^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple), script-path=https://raw.githubusercontent.com/alonex101/shdwrckt/main/truecaller.js, requires-body=true, max-size=-1, timeout=300
+𝙇𝙞𝙜𝙝𝙩𝙍𝙤𝙤𝙢 = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts*, script-path=https://raw.githubusercontent.com/lonely0811/Surge/main/js/lroom.js, requires-body=true, max-size=-1, timeout=300
+𝘽𝙚𝙣𝙙𝙞𝙣𝙜𝙎𝙥𝙤𝙤𝙣𝙨𝘼𝙥𝙥𝙨 = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/bending.js, requires-body=true, max-size=-1, timeout=300
+𝙭𝘼𝙘𝙘𝙤𝙪𝙣𝙩 = type=http-request, pattern=^https?:\/\/api\.x\.com\/1\.1\/account\/settings\.json, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/SRSS/dist/srss.js
+𝙭𝙃𝙖𝙣𝙙𝙡𝙚𝙧 = type=http-request, pattern=^http:\/\/s.rss\/x\/.*, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/SRSS/dist/srss.js
 
 [MITM]
-hostname = script.hub, *.script.hub, *.googlevideo.com, youtubei.googleapis.com, spclient.wg.spotify.com, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com, api.x.com
+hostname = *.googlevideo.com, youtubei.googleapis.com, spclient.wg.spotify.com, api.revenuecat.com, nicegram.cloud, ap*.intsig.net, iap.etm.tech, premium*.truecaller.com, photos.adobe.io, *.oracle.bendingspoonsapps.com, api.x.com
