@@ -1,8 +1,8 @@
-#!name= 🔫 Chặn Quảng Cáo
-#!desc= 🔫 Cực Mạnh
+#!name= 𝘽𝙡𝙤𝙘𝙠 𝘼𝙙𝙫𝙚𝙧𝙩𝙞𝙨𝙚𝙢𝙚𝙣𝙩 𝘿𝙚𝙩𝙚𝙘𝙩𝙞𝙤𝙣
+#!desc= 𝘉𝘭𝘰𝘤𝘬 𝘵𝘳𝘢𝘤𝘬𝘦𝘳𝘴, 𝘮𝘢𝘭𝘸𝘢𝘳𝘦 𝘢𝘯𝘥 𝘢𝘯𝘯𝘰𝘺𝘪𝘯𝘨 𝘢𝘥𝘴...
 
 [Rule]
-RULE-SET,https://cdn.jsdelivr.net/gh/Loyalsoldier/surge-rules@release/ruleset/reject.txt,REJECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt,REJECT
 RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rule.conf,REJECT
 RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/option/hostsVN-surge-rewrite.conf,REJECT
 RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/master/extensions/threat/surge-rule.conf,REJECT
